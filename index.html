@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Indian Art Map — Exploring India's Living Art Traditions</title>
+  <meta name="description" content="An interactive map exploring the geographic spread and cultural influence of India's greatest art traditions — from Ajanta cave murals and Chola bronzes to Madhubani folk painting and Kalamkari textiles." />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     INTRO OVERLAY
+══════════════════════════════════════════════════════════ -->
+<div id="intro-overlay" role="dialog" aria-modal="true" aria-label="Introduction">
+  <div id="intro-card">
+    <span class="intro-emoji">🗺️</span>
+    <h2>Interactive Indian Art Map</h2>
+    <p>
+      India's art traditions stretch across 4,000 years and span cave-temple
+      sculpture, Mughal-era miniatures, living folk traditions, and sacred
+      textile crafts. This map lets you explore 13 landmark sites — their
+      geography, their histories, and how each region shaped a distinct visual
+      language still practiced today.
+    </p>
+    <div id="intro-stats">
+      <div class="intro-stat">
+        <strong>13</strong>
+        <small>Landmark Sites</small>
+      </div>
+      <div class="intro-stat">
+        <strong>5</strong>
+        <small>Art Categories</small>
+      </div>
+      <div class="intro-stat">
+        <strong>11</strong>
+        <small>States</small>
+      </div>
+    </div>
+    <button id="intro-close">Explore the Map →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     APP SHELL
+══════════════════════════════════════════════════════════ -->
+<div id="app">
+
+  <!-- ── Header ──────────────────────────────────────────── -->
+  <header id="header" role="banner">
+    <div id="header-logo" aria-hidden="true">🇮🇳</div>
+    <div id="header-text">
+      <h1>Interactive Indian Art Map</h1>
+      <p>Exploring 4,000 years of Indian visual tradition across 13 landmark sites</p>
+    </div>
+    <span id="count-badge" aria-live="polite">13 / 13 sites</span>
+    <button id="sidebar-toggle" title="Toggle sidebar" aria-label="Toggle sidebar">☰</button>
+  </header>
+
+  <!-- ── Content ─────────────────────────────────────────── -->
+  <div id="content">
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <nav id="sidebar" aria-label="Art locations and filters">
+      <div id="sidebar-inner">
+
+        <!-- Search -->
+        <div id="search-wrap">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search locations, states, art forms…"
+            aria-label="Search locations"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Filters -->
+        <section id="filter-section" aria-label="Filter by art category">
+          <h2>Filter by Category</h2>
+          <div id="filter-buttons" role="group" aria-label="Art category filters"></div>
+        </section>
+
+        <!-- Location List -->
+        <div id="location-list-wrapper" role="list">
+          <div id="location-groups"></div>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- ── Map ─────────────────────────────────────────────── -->
+    <main id="map" aria-label="India art map">
+
+      <!-- Map Legend (overlaid on map) -->
+      <aside id="map-legend" aria-label="Map legend">
+        <h3>Legend</h3>
+        <div id="legend-items"></div>
+      </aside>
+
+    </main>
+
+  </div><!-- /#content -->
+</div><!-- /#app -->
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- App JS -->
+<script src="script.js"></script>
+</body>
+</html>
